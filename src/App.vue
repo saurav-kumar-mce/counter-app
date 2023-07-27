@@ -1,26 +1,52 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="counter-app">
+    <h1>Counter App</h1>
+    <div class="counter">
+      <button @click="decrement">-</button>
+      <span>{{ count }}</span>
+      <button @click="increment">+</button>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      count: 0
+    };
+  },
+  methods: {
+    increment() {
+      this.count++;
+    },
+    decrement() {
+        this.count--;
+      }
+    }
+  };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.counter-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
 }
 </style>
